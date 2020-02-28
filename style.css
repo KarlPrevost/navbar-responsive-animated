@@ -1,0 +1,226 @@
+/* ############################# */
+/* ############################# */
+/* BASE + RESET */
+/* ############################# */
+/* ############################# */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+	background-color: #FFFFFF;
+	font-family: 'Play', sans-serif;
+
+	/* img size = 50x50 */
+	background: url('fondb2.png');
+	animation: bg-scrolling-reverse 2s infinite;
+	animation-timing-function: linear;
+}
+ol, ul {
+	list-style: none;
+}
+
+a {
+	color: inherit;
+} 
+
+a:link {
+	text-decoration:none;
+} 
+
+.white-text{
+	color: white;
+}
+
+/*Body background Animation*/
+@keyframes bg-scrolling-reverse {
+	100% {
+	  background-position: 0px 50px;
+	}
+  }
+  @keyframes bg-scrolling {
+	0% {
+	  background-position: 50px 50px;
+	}
+  }  
+
+/* ############################# */
+/* ############################# */
+/* NAVBAR */
+/* ############################# */
+/* ############################# */
+
+.navbar {
+	font-family: 'Aldrich', sans-serif;
+	border-bottom: 1px solid black;
+	box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.288);
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding:5px 0px;
+}
+
+.logo {
+	font-size: 1.7rem;
+}
+
+#nav-link-home{
+	display: none;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+	font-size: 1.25rem;
+}
+
+.navbar>ul>li>a:hover{
+	text-decoration: underline;
+}
+
+.burger {
+	cursor: pointer;
+	display:none;
+}
+.burger div{
+	width:25px;
+	height: 3px;
+	background-color:black;
+	margin:5px;
+	transition: all 0.3s ease;
+}
+
+/* Logo cursor animation */
+.cursor-logo{
+	margin-left: -10px;
+	font-size: 1.5rem;
+	animation:flash 1s linear infinite;
+	position:absolute;
+	transform:translate(90%,40%)
+}
+
+@keyframes flash {
+	0%{
+		opacity:1;
+	}
+	50%{
+		opacity:0;
+	}
+	100%{
+		opacity:1;
+	}
+}
+
+/* navbar media query */
+
+@media screen and (max-width:1024px){
+	.nav-links {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width:768px){
+	body {
+		overflow-x: hidden;
+	}
+	#nav-link-home{
+		display:unset;
+	}
+
+	.nav-links {
+		/* display: flex; */
+		display: none;
+		flex-direction: column;
+		align-items: center;
+		
+		width: 80%;
+		position: absolute;
+		/* right :0px; */
+		top: 39px;
+		left:20%;
+		height: 90%;
+		/* transform: translateX(100%); */
+
+
+		border: 1px solid black;
+		border-right:unset;
+
+		z-index: 1;
+	}
+	.nav-links li {
+		opacity :0;
+	}
+	.burger {
+		display:block;
+	}
+}
+
+@keyframes slidein {
+	from {
+		transform: translateX(100%);
+	}
+  
+	to {
+		transform: translateX(0%);
+	}
+}
+
+/* navbar burger animations */
+.nav-active {
+	display:flex;
+	animation: slidein 0.3s linear;
+	box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.288);
+	overflow-y:hidden;
+}
+
+.body-nav-active {
+	height:100%;
+	overflow: hidden;
+}
+
+
+
+
+@keyframes navLinkFade{
+	from{
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+.toggle .burger-line1 {
+	transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.toggle .burger-line2 {
+	opacity:0;
+}
+
+.toggle .burger-line3 {
+	transform: rotate(45deg) translate(-5px,-6px);
+}
